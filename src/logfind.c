@@ -35,6 +35,8 @@ int main(int argc, char *argv[])
         if (strstr(argv[i], "-o"))
         {
             log_info("Switching to OR mode");
+        } else {
+            // do nothing
         }
     }
 
