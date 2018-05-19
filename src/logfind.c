@@ -6,7 +6,7 @@
 
 const char version[] = "0.0.1";
 
-void exit(const char *message)
+void die(const char *message)
 {
     if (errno)
     {
@@ -26,12 +26,16 @@ int main(int argc, char *argv[])
     if (argc < 2)
     {
         char err_msg[] = "You must give a string to search logs for a match";
-        exit(err_msg);
+        die(err_msg);
     }
 
     for (int i = 0; i < argc; i++)
     {
-        printf(argv[i]);
+        printf("%s\n", argv[i]);
+        if (strstr(argv[i], "-o"))
+        {
+            log_info("Switching to OR mode");
+        }
     }
 
     return 0;
